@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Solana Token Launch Monitor",
+  "version": "1.1",
+  "description": "Monitors Solana mempool for new token launches on popular launchpads and alerts the user.",
+  "permissions": [
+    "storage",
+    "alarms",
+    "notifications",
+    "clipboardWrite"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

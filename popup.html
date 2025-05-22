@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana Token Launch Monitor</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Solana Token Launch Monitor</h1>
+        </header>
+
+        <section class="status-section">
+            <p id="monitoringStatus">Status: Initializing...</p>
+        </section>
+
+        <section class="alerts-section">
+            <h2>Recent Alerts</h2>
+            <ul id="alertsList">
+                <!-- Alerts will be dynamically populated by popup.js using the template below -->
+            </ul>
+            <template id="alert-item-template">
+                <li class="alert-item">
+                    <div class="alert-main-info">
+                        <span class="token-name">Placeholder Token Name</span>
+                        <span class="alert-text"> launched on </span>
+                        <span class="launchpad-name">Placeholder Launchpad</span>
+                    </div>
+                    <div class="alert-ca-info">
+                        <span class="tx-sig-label">Tx Sig: </span>
+                        <span class="transaction-signature">PlaceholderTransactionSignature</span>
+                        <button class="copy-tx-sig-button" title="Copy Transaction Signature">Copy Sig</button>
+                    </div>
+                </li>
+            </template>
+            <button id="clearAlertsButton" class="button">Clear Alerts</button>
+        </section>
+
+        <footer class="settings-footer">
+            <p>Configure settings in the extension options.</p>
+        </footer>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>

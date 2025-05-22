@@ -1,0 +1,237 @@
+/* Global Resets and Box Sizing */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/* General Body Styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #E8EFF5; /* Soothing light blue-grey */
+    color: #333; /* Default text color */
+    margin: 0;
+    min-width: 500px; /* Ensures overall popup window is not too narrow */
+    padding: 15px; /* Padding around the main container */
+}
+
+.container {
+    width: 350px; /* Specific width for the main content area */
+    margin: 0 auto; /* Center the container within the padded body */
+    padding: 15px;
+    background-color: #f4f4f4; /* Light grey background */
+    border-radius: 8px; /* Modern rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Header Styles */
+header {
+    margin-bottom: 15px;
+}
+
+header h1 {
+    font-size: 1.5em;
+    color: #333;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* Status Section Styles */
+.status-section {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.status-section p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.status-section p:last-child {
+    margin-bottom: 0;
+}
+
+#monitoringStatus {
+    font-weight: bold;
+    color: #2c3e50; /* Darker, more prominent status text */
+    font-size: 1em;
+}
+
+/* Alerts Section Styles */
+.alerts-section {
+    margin-top: 15px;
+}
+
+.alerts-section h2 {
+    font-size: 1.2em;
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ddd; /* Subtle separator */
+}
+
+#alertsList {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    max-height: 200px; /* Max height for scrollability */
+    overflow-y: auto; /* Enable vertical scroll */
+    background-color: #ffffff;
+}
+
+/* Scrollbar styling for alertsList (Webkit browsers) */
+#alertsList::-webkit-scrollbar {
+    width: 8px;
+}
+
+#alertsList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 0 5px 5px 0;
+}
+
+#alertsList::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+#alertsList::-webkit-scrollbar-thumb:hover {
+    background: #a1a1a1;
+}
+
+/* Alert Item Styles */
+.alert-item {
+    padding: 8px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Space between alert-main-info and alert-ca-info */
+    font-size: 0.9em;
+    line-height: 1.4;
+    color: #333;
+}
+
+.alert-item:last-child {
+    border-bottom: none;
+}
+
+.alert-main-info {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for long token/launchpad names */
+    align-items: baseline; /* Align text nicely */
+    gap: 0.3em; /* Small gap between inline-like elements */
+}
+
+.alert-main-info .token-name {
+    font-weight: 600;
+    color: #007bff;
+}
+
+.alert-main-info .alert-text {
+    color: #444;
+}
+
+.alert-main-info .launchpad-name {
+    font-style: italic;
+    color: #555;
+}
+
+/* Container for Signature Info - Kept class name .alert-ca-info for layout consistency */
+.alert-ca-info {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between label, signature, and button */
+}
+
+/* Updated class for Transaction Signature Label */
+.alert-ca-info .tx-sig-label {
+    font-weight: bold;
+    color: #444;
+    white-space: nowrap; /* Prevent "Tx Sig:" from wrapping */
+}
+
+/* Updated class for Transaction Signature Display */
+.alert-ca-info .transaction-signature {
+    font-family: monospace;
+    font-size: 0.85em; /* Relative to .alert-item's font-size */
+    color: #333;
+    background-color: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 3px;
+    word-break: break-all; /* Crucial for long signatures */
+    flex-grow: 1; /* Allow signature to take available space */
+    min-width: 100px; /* Prevent it from becoming too narrow */
+    /* margin-right: 5px; removed, relying on parent's gap */
+}
+
+/* Updated class for Copy Transaction Signature Button */
+.alert-ca-info .copy-tx-sig-button {
+    padding: 3px 8px;
+    font-size: 0.8em; /* Relative to .alert-item's font-size */
+    font-weight: 500;
+    background-color: #28a745; /* Green for copy action */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap; /* Prevent button text from wrapping */
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+.alert-ca-info .copy-tx-sig-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+.alert-ca-info .copy-tx-sig-button:active {
+    background-color: #1e7e34; /* Even darker green on click */
+    transform: translateY(1px); /* Slight press effect */
+}
+
+/* General Button Styles (e.g., Clear Alerts) */
+.button {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: 10px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+#clearAlertsButton {
+    display: block;
+    width: 100%;
+}
+
+/* Footer Styles */
+.settings-footer {
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
+
+.settings-footer p {
+    font-size: 0.8em;
+    font-style: italic;
+    color: #777;
+    text-align: center;
+    margin: 0;
+}
